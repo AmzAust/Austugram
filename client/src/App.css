@@ -26,12 +26,14 @@ h2 {
 }
 
 .gallery {
+  padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .item {
+  padding-top: 10px;
   width: 30%;
 }
 

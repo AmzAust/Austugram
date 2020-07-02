@@ -9,7 +9,7 @@ const Home = () => {
           <img src="https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" />
         </div>
         <div className="card-content">
-          <i class="material-icons" style={{ color: "red" }}>
+          <i className="material-icons" style={{ color: "red" }}>
             favorite
           </i>
           <h6>title</h6>
@@ -23,7 +23,7 @@ const Home = () => {
           <img src="https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" />
         </div>
         <div className="card-content">
-          <i class="material-icons" style={{ color: "red" }}>
+          <i className="material-icons" style={{ color: "red" }}>
             favorite
           </i>
           <h6>title</h6>
@@ -37,7 +37,7 @@ const Home = () => {
           <img src="https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" />
         </div>
         <div className="card-content">
-          <i class="material-icons" style={{ color: "red" }}>
+          <i className="material-icons" style={{ color: "red" }}>
             favorite
           </i>
           <h6>title</h6>
