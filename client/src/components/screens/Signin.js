@@ -5,7 +5,7 @@ const Signin = () => {
   return (
     <div className="mycard input-field">
       <div className="card auth-card">
-        <h2>Austugram</h2>
+        <h2>Sign In</h2>
         <input type="text" placeholder="email" />
         <input type="text" placeholder="password" />
         <button

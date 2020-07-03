@@ -6,11 +6,12 @@ const CreatePost = () => {
       className="card input-field"
       style={{
         margin: "30px auto",
-        maxWidth: "500px",
+        maxWidth: "400px",
         padding: "20px",
         textAlign: "center",
       }}
     >
+      <h2>Create Your Post</h2>
       <input type="text" placeholder="title" />
       <input type="text" placeholder="body" />
       <div className="file-field input-field">
