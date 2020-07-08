@@ -15,8 +15,7 @@ const Navbar = () => {
           <Link to="/create">Create Post</Link>
         </li>,
         <li>
-          <button
-            className="btn #81d4fa light-blue lighten-3"
+          <a
             onClick={() => {
               localStorage.clear();
               dispatch({ type: "CLEAR" });
@@ -24,7 +23,7 @@ const Navbar = () => {
             }}
           >
             Logout
-          </button>
+          </a>
         </li>,
       ];
     } else {
