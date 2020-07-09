@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../App";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -124,11 +125,18 @@ const Home = () => {
         return (
           <div className="card home-card" key={item._id}>
             <h5>
-              {item.postedBy.name}
+              <Link
+                to={
+                  item.postedBy._id !== state._id
+                    ? "/profile/" + item.postedBy._id
+                    : "/profile"
+                }
+              >
+                {item.postedBy.name}
+              </Link>
               {item.postedBy._id == state._id && (
                 <i
                   className="material-icons"
-                  onMouseOver=""
                   style={{ float: "right", cursor: "pointer" }}
                   onClick={() => deletePost(item._id)}
                 >
@@ -146,7 +154,6 @@ const Home = () => {
               {item.likes.includes(state._id) ? (
                 <i
                   className="material-icons"
-                  onMouseOver=""
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     unlikePost(item._id);
@@ -157,7 +164,6 @@ const Home = () => {
               ) : (
                 <i
                   className="material-icons"
-                  onMouseOver=""
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     likePost(item._id);
