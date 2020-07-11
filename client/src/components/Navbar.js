@@ -9,6 +9,9 @@ const Navbar = () => {
     if (state) {
       return [
         <li>
+          <Link to="/myfollowingposts">Following Feed</Link>
+        </li>,
+        <li>
           <Link to="/profile">Profile</Link>
         </li>,
         <li>
