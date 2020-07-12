@@ -4,6 +4,8 @@ import { UserContext } from "../../App";
 
 const Profile = () => {
   const [myPics, setPics] = useState([]);
+  const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
   const { state, dispatch } = useContext(UserContext);
   useEffect(() => {
     fetch("/mypost", {
@@ -16,6 +18,36 @@ const Profile = () => {
         setPics(result.mypost);
       });
   }, []);
+
+  useEffect(() => {
+    if (image) {
+      const data = new FormData();
+      data.append("file", image);
+      data.append("upload_preset", "austugram");
+      data.append("cloud_name", "austinscloud");
+      fetch("	https://api.cloudinary.com/v1_1/austinscloud/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setUrl(data.url);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ ...state, pic: data.url })
+          );
+          dispatch({ type: "UPDATEPIC", payload: data.url });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [image]);
+
+  const uploadPhoto = (file) => {
+    setImage(file);
+  };
+
   return (
     <div style={{ maxWidth: "550px", margin: "0px auto" }}>
       <div
@@ -29,9 +61,23 @@ const Profile = () => {
         <div>
           <img
             style={{ width: "160px", height: "160px", borderRadius: "80px" }}
-            src="https://images.unsplash.com/photo-1551712702-4b7335dd8706?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+            src={state ? state.pic : "Loading"}
             alt=""
           />
+        </div>
+        <div>
+          <div className="file-field input-field">
+            <div className="btn #81d4fa light-blue lighten-3">
+              <span>Edit Pic</span>
+              <input
+                type="file"
+                onChange={(e) => uploadPhoto(e.target.files[0])}
+              />
+            </div>
+            <div className="file-path-wrapper">
+              <input className="file-path validate" type="text" />
+            </div>
+          </div>
         </div>
         <div>
           <h4>{state ? state.name : "Loading"}</h4>
