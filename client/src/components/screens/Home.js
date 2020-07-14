@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
+import ModalImage from "react-modal-image";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -144,13 +145,13 @@ const Home = () => {
                 </i>
               )}
             </h5>
-            <div className="card-image">
-              <img src={item.photo} />
-            </div>
+            <ModalImage
+              className="card-image"
+              small={item.photo}
+              medium={item.photo}
+              alt={item.title}
+            />
             <div className="card-content">
-              {/* <i className="material-icons" style={{ color: "red" }}>
-                favorite
-              </i> */}
               {item.likes.includes(state._id) ? (
                 <i
                   className="material-icons"
@@ -172,18 +173,18 @@ const Home = () => {
                   thumb_up
                 </i>
               )}
-              <h6>{item.likes.length} Likes </h6>
-              <h6>{item.title}</h6>
-              <p>{item.body}</p>
+              <h6 style={{ fontWeight: "1000" }}>{item.likes.length} Likes </h6>
+              <h4>{item.title}</h4>
+              <h6>{item.body}</h6>
               {item.comments.map((record) => {
                 return (
-                  <h6 key={record._id}>
-                    <span style={{ fontWeight: "500" }}>
+                  <p key={record._id}>
+                    <span style={{ fontWeight: "700" }}>
                       {record.postedBy.name}
                     </span>
                     {": "}
                     {record.text}
-                  </h6>
+                  </p>
                 );
               })}
               <form

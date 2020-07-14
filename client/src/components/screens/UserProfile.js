@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
 import { useParams } from "react-router-dom";
+import ModalImage from "react-modal-image";
 
 const Profile = () => {
   const [userProfile, setProfile] = useState(null);
@@ -147,10 +148,11 @@ const Profile = () => {
           <div className="gallery">
             {userProfile.posts.map((item) => {
               return (
-                <img
+                <ModalImage
                   key={item._id}
                   className="item"
-                  src={item.photo}
+                  small={item.photo}
+                  medium={item.photo}
                   alt={item.title}
                 />
               );

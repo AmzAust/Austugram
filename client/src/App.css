@@ -36,18 +36,25 @@ h2 {
 
 .gallery {
   padding-top: 10px;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  grid-template-rows: repeat(20, 6vw);
+  grid-gap: 15px;
 }
 
 .item {
-  padding: 10px;
-  width: 30%;
+  /* padding: 10px;
+  width: 30%; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .home-card {
-  max-width: 400px;
+  max-width: 460px;
   height: max-content;
   margin: 26px auto;
 }
@@ -57,3 +64,20 @@ h2 {
   right: 20px !important;
   left: auto !important;
 }
+
+.card-content {
+  overflow-wrap: break-word !important;
+}
+
+/* .img:hover {
+  color: #424242;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  opacity: 1;
+  transform: scale(2);
+  -ms-transform: scale(2);
+  -webkit-transform: scale(2);
+} */
